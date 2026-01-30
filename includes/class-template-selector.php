@@ -1,8 +1,7 @@
 <?php
 /**
- * Plugin Name: Custom Post Template Selector
- * Description: Enables custom single post templates with dropdown selector
- * Version: 1.0
+ * Template Selector Class
+ * Handles custom post template assignment
  */
 
 // Add custom templates to template dropdown

@@ -1,9 +1,7 @@
 <?php
 /**
- * Plugin Name: Advanced Product Comparison & Reviews
- * Description: Complete product comparison plugin with reviews, ratings, and specifications
- * Version: 2.0
- * Author: Your Name
+ * Meta Boxes Class
+ * Handles all admin meta boxes for product information
  */
 
 // Enqueue CSS and JS

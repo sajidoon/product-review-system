@@ -1,7 +1,6 @@
 <?php
 /**
  * Plugin Name: Advanced Product Review System
- * Plugin URI: https://www.linkedin.com/in/muhammad-sajid-iqbal-7bb56a1a1/
  * Description: Complete product review system with ratings, price comparison, specifications, and custom templates
  * Version: 2.0.0
  * Author: Sajid Iqbal
