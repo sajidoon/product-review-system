@@ -146,18 +146,21 @@ if (prs_is_editors_choice($post_id)) {
 
 ## Support
 
-For support and updates, visit:
-- Documentation: https://yoursite.com/docs
-- Support: https://yoursite.com/support
+For support and updates, contact:
+- LinkedIn: [Muhammad Sajid Iqbal](https://www.linkedin.com/in/muhammad-sajid-iqbal-7bb56a1a1/)
 
 ## Changelog
 
 ### Version 2.0.0
-- Initial release
-- Complete review system
-- Custom templates
-- Price comparison
-- Ratings system
+- Revamped Settings UI with modern aesthetics.
+- Added WordPress Color Picker integration.
+- Added "Reset to Defaults" functionality.
+- Fixed "Cannot load" and PHP Deprecation errors.
+- Improved dynamic CSS injection.
+- Added Global Review Settings page.
+
+### Version 1.0.0
+- Initial release.
 
 ## License
 
@@ -165,8 +168,8 @@ GPL v2 or later
 
 ## Credits
 
-Developed by: Your Name
-Website: https://yoursite.com
+Developed by: [Muhammad Sajid Iqbal](https://www.linkedin.com/in/muhammad-sajid-iqbal-7bb56a1a1/)
+LinkedIn: [Profile](https://www.linkedin.com/in/muhammad-sajid-iqbal-7bb56a1a1/)
 
 ---
 
