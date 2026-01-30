@@ -7,7 +7,7 @@
  * Author URI: https://www.linkedin.com/in/muhammad-sajid-iqbal-7bb56a1a1/
  * License: GPL v2 or later
  * License URI: https://www.gnu.org/licenses/gpl-2.0.html
- * Text Domain: product-review-system
+ * Text Domain: advanced-product-review-system
  * Domain Path: /languages
  */
 
@@ -55,7 +55,7 @@ class Advanced_Product_Review_System {
     private function init() {
         // Load Text Domain on init
         add_action('init', function() {
-            load_plugin_textdomain('product-review-system', false, dirname(plugin_basename(PRS_PLUGIN_FILE)) . '/languages');
+            load_plugin_textdomain('advanced-product-review-system', false, dirname(plugin_basename(PRS_PLUGIN_FILE)) . '/languages');
         }, 1);
 
         // Load components

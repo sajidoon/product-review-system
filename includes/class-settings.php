@@ -112,14 +112,14 @@ class PRS_Settings {
         
         add_settings_section(
             'prs_general_section',
-            __('General Settings', 'product-review-system'),
+            __('General Settings', 'advanced-product-review-system'),
             null,
             'prs-settings'
         );
         
         add_settings_field(
             'prs_default_template',
-            __('Global Default Template', 'product-review-system'),
+            __('Global Default Template', 'advanced-product-review-system'),
             array($this, 'render_default_template_field'),
             'prs-settings',
             'prs_general_section'
@@ -128,7 +128,7 @@ class PRS_Settings {
         // Style Settings Section
         add_settings_section(
             'prs_style_section',
-            __('Style Settings', 'product-review-system'),
+            __('Style Settings', 'advanced-product-review-system'),
             null,
             'prs-settings'
         );
@@ -137,7 +137,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_primary_color', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_primary_color',
-            __('Primary Color', 'product-review-system'),
+            __('Primary Color', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_style_section',
@@ -148,7 +148,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_badge_color', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_badge_color',
-            __('Badge/Gradient Color', 'product-review-system'),
+            __('Badge/Gradient Color', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_style_section',
@@ -159,7 +159,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_heading_color', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_heading_color',
-            __('Heading Color', 'product-review-system'),
+            __('Heading Color', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_style_section',
@@ -170,7 +170,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_border_radius', array('sanitize_callback' => 'absint'));
         add_settings_field(
             'prs_border_radius',
-            __('Border Radius (px)', 'product-review-system'),
+            __('Border Radius (px)', 'advanced-product-review-system'),
             array($this, 'render_number_field'),
             'prs-settings',
             'prs_style_section',
@@ -180,7 +180,7 @@ class PRS_Settings {
         // --- Typography & Layout Section ---
         add_settings_section(
             'prs_typo_section',
-            __('Typography & Layout', 'product-review-system'),
+            __('Typography & Layout', 'advanced-product-review-system'),
             null,
             'prs-settings'
         );
@@ -189,7 +189,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_bg_color', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_bg_color',
-            __('Background Color', 'product-review-system'),
+            __('Background Color', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_typo_section',
@@ -200,7 +200,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_text_color', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_text_color',
-            __('Text Color', 'product-review-system'),
+            __('Text Color', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_typo_section',
@@ -211,7 +211,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_font_family', array('sanitize_callback' => 'sanitize_text_field'));
         add_settings_field(
             'prs_font_family',
-            __('Font Family', 'product-review-system'),
+            __('Font Family', 'advanced-product-review-system'),
             array($this, 'render_font_field'),
             'prs-settings',
             'prs_typo_section',
@@ -222,7 +222,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_max_width', array('sanitize_callback' => 'absint'));
         add_settings_field(
             'prs_max_width',
-            __('Max Width (px)', 'product-review-system'),
+            __('Max Width (px)', 'advanced-product-review-system'),
             array($this, 'render_number_field'),
             'prs-settings',
             'prs_typo_section',
@@ -232,7 +232,7 @@ class PRS_Settings {
         // --- Section Colors Section ---
         add_settings_section(
             'prs_section_colors',
-            __('Section Header Colors', 'product-review-system'),
+            __('Section Header Colors', 'advanced-product-review-system'),
             null,
             'prs-settings'
         );
@@ -241,7 +241,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_price_gradient_1', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_price_gradient_1',
-            __('Price Header Gradient Start', 'product-review-system'),
+            __('Price Header Gradient Start', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_section_colors',
@@ -252,7 +252,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_price_gradient_2', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_price_gradient_2',
-            __('Price Header Gradient End', 'product-review-system'),
+            __('Price Header Gradient End', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_section_colors',
@@ -263,7 +263,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_specs_gradient_1', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_specs_gradient_1',
-            __('Specs Header Gradient Start', 'product-review-system'),
+            __('Specs Header Gradient Start', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_section_colors',
@@ -274,7 +274,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_specs_gradient_2', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_specs_gradient_2',
-            __('Specs Header Gradient End', 'product-review-system'),
+            __('Specs Header Gradient End', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_section_colors',
@@ -284,7 +284,7 @@ class PRS_Settings {
         // --- Box Model & Borders Section ---
         add_settings_section(
             'prs_box_model_section',
-            __('Box Model & Borders', 'product-review-system'),
+            __('Box Model & Borders', 'advanced-product-review-system'),
             null,
             'prs-settings'
         );
@@ -293,7 +293,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_container_padding', array('sanitize_callback' => 'absint'));
         add_settings_field(
             'prs_container_padding',
-            __('Container Padding (px)', 'product-review-system'),
+            __('Container Padding (px)', 'advanced-product-review-system'),
             array($this, 'render_number_field'),
             'prs-settings',
             'prs_box_model_section',
@@ -304,7 +304,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_box_margin', array('sanitize_callback' => 'absint'));
         add_settings_field(
             'prs_box_margin',
-            __('Box Margin (px) - Spacing between sections', 'product-review-system'),
+            __('Box Margin (px) - Spacing between sections', 'advanced-product-review-system'),
             array($this, 'render_number_field'),
             'prs-settings',
             'prs_box_model_section',
@@ -315,7 +315,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_box_padding', array('sanitize_callback' => 'absint'));
         add_settings_field(
             'prs_box_padding',
-            __('Box Padding (px) - Inner spacing', 'product-review-system'),
+            __('Box Padding (px) - Inner spacing', 'advanced-product-review-system'),
             array($this, 'render_number_field'),
             'prs-settings',
             'prs_box_model_section',
@@ -326,7 +326,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_border_width', array('sanitize_callback' => 'absint'));
         add_settings_field(
             'prs_border_width',
-            __('Border Width (px)', 'product-review-system'),
+            __('Border Width (px)', 'advanced-product-review-system'),
             array($this, 'render_number_field'),
             'prs-settings',
             'prs_box_model_section',
@@ -337,7 +337,7 @@ class PRS_Settings {
         register_setting('prs_settings_group', 'prs_border_color', array('sanitize_callback' => 'sanitize_hex_color'));
         add_settings_field(
             'prs_border_color',
-            __('Border Color', 'product-review-system'),
+            __('Border Color', 'advanced-product-review-system'),
             array($this, 'render_color_field'),
             'prs-settings',
             'prs_box_model_section',
@@ -351,11 +351,11 @@ class PRS_Settings {
     public function render_settings_page() {
         ?>
         <div class="wrap prs-settings-wrap">
-            <h1><?php _e('Product Review Settings', 'product-review-system'); ?></h1>
+            <h1><?php _e('Product Review Settings', 'advanced-product-review-system'); ?></h1>
             
             <?php if (isset($_GET['prs-reset']) && $_GET['prs-reset'] == 'true') : ?>
                 <div class="notice notice-info is-dismissible">
-                    <p><?php _e('Settings have been reset to defaults.', 'product-review-system'); ?></p>
+                    <p><?php _e('Settings have been reset to defaults.', 'advanced-product-review-system'); ?></p>
                 </div>
             <?php endif; ?>
             <form method="post" action="options.php"> <!-- Updated Form Action -->
@@ -368,7 +368,7 @@ class PRS_Settings {
             <form method="post" action="<?php echo admin_url('admin-post.php'); ?>" style="margin-top: -50px; margin-left: 150px; display: inline-block;">
                 <input type="hidden" name="action" value="prs_reset_settings">
                 <?php wp_nonce_field('prs_reset_action', 'prs_reset_nonce'); ?>
-                <?php submit_button(__('Reset to Defaults', 'product-review-system'), 'secondary', 'prs_reset', false, array('onclick' => 'return confirm("' . __('Are you sure you want to reset all settings?', 'product-review-system') . '");')); ?>
+                <?php submit_button(__('Reset to Defaults', 'advanced-product-review-system'), 'secondary', 'prs_reset', false, array('onclick' => 'return confirm("' . __('Are you sure you want to reset all settings?', 'advanced-product-review-system') . '");')); ?>
             </form>
             <div style="clear:both;"></div>
         </div>
@@ -382,10 +382,10 @@ class PRS_Settings {
         $default_template = get_option('prs_default_template', 'default');
         
         $templates = array(
-            'default' => __('WordPress Default', 'product-review-system'),
-            'single-product-review.php' => __('Product Review Template', 'product-review-system'),
-            'single-comparison.php' => __('Product Comparison Template', 'product-review-system'),
-            'single-minimal.php' => __('Minimal Review Template', 'product-review-system')
+            'default' => __('WordPress Default', 'advanced-product-review-system'),
+            'single-product-review.php' => __('Product Review Template', 'advanced-product-review-system'),
+            'single-comparison.php' => __('Product Comparison Template', 'advanced-product-review-system'),
+            'single-minimal.php' => __('Minimal Review Template', 'advanced-product-review-system')
         );
         ?>
         <select name="prs_default_template">
@@ -395,7 +395,7 @@ class PRS_Settings {
                 </option>
             <?php endforeach; ?>
         </select>
-        <p class="description"><?php _e('This template will be used if "Default Template" is selected on the post.', 'product-review-system'); ?></p>
+        <p class="description"><?php _e('This template will be used if "Default Template" is selected on the post.', 'advanced-product-review-system'); ?></p>
         <?php
     }
 

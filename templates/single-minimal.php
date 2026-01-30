@@ -21,7 +21,7 @@ get_header(); ?>
             <h1 class="minimal-post-title"><?php the_title(); ?></h1>
             
             <div class="minimal-post-meta">
-                <span><?php _e('By', 'product-review-system'); ?> <?php the_author(); ?></span>
+                <span><?php _e('By', 'advanced-product-review-system'); ?> <?php the_author(); ?></span>
                 <span><?php echo get_the_date('F j, Y'); ?></span>
             </div>
         </header>
@@ -58,7 +58,7 @@ get_header(); ?>
     ?>
     <div class="minimal-rating-badge">
         <div class="score"><?php echo esc_html($overall_rating); ?></div>
-        <div class="label"><?php _e('Score', 'product-review-system'); ?></div>
+        <div class="label"><?php _e('Score', 'advanced-product-review-system'); ?></div>
     </div>
     <?php endif; ?>
     

@@ -6,9 +6,9 @@
 
 // Add custom templates to template dropdown
 function add_custom_post_templates($templates) {
-    $templates['single-product-review.php'] = __('Product Review Template', 'product-review-system');
-    $templates['single-comparison.php'] = __('Product Comparison Template', 'product-review-system');
-    $templates['single-minimal.php'] = __('Minimal Review Template', 'product-review-system');
+    $templates['single-product-review.php'] = __('Product Review Template', 'advanced-product-review-system');
+    $templates['single-comparison.php'] = __('Product Comparison Template', 'advanced-product-review-system');
+    $templates['single-minimal.php'] = __('Minimal Review Template', 'advanced-product-review-system');
     return $templates;
 }
 add_filter('theme_post_templates', 'add_custom_post_templates');
@@ -57,7 +57,7 @@ add_filter('single_template', 'load_custom_post_template');
 function add_template_selector_meta_box() {
     add_meta_box(
         'post_template_selector',
-        __('Post Template', 'product-review-system'),
+        __('Post Template', 'advanced-product-review-system'),
         'render_template_selector_meta_box',
         'post',
         'side',
@@ -76,15 +76,15 @@ function render_template_selector_meta_box($post) {
     }
     
     $templates = array(
-        'default' => __('Default Template', 'product-review-system'),
-        'single-product-review.php' => __('Product Review Template', 'product-review-system'),
-        'single-comparison.php' => __('Product Comparison Template', 'product-review-system'),
-        'single-minimal.php' => __('Minimal Review Template', 'product-review-system')
+        'default' => __('Default Template', 'advanced-product-review-system'),
+        'single-product-review.php' => __('Product Review Template', 'advanced-product-review-system'),
+        'single-comparison.php' => __('Product Comparison Template', 'advanced-product-review-system'),
+        'single-minimal.php' => __('Minimal Review Template', 'advanced-product-review-system')
     );
     
     ?>
     <p>
-        <label for="page_template"><strong><?php _e('Select Template:', 'product-review-system'); ?></strong></label>
+        <label for="page_template"><strong><?php _e('Select Template:', 'advanced-product-review-system'); ?></strong></label>
         <select name="page_template" id="page_template" class="widefat">
             <?php foreach ($templates as $template_file => $template_name) : ?>
                 <option value="<?php echo esc_attr($template_file); ?>" <?php selected($current_template, $template_file); ?>>
@@ -93,7 +93,7 @@ function render_template_selector_meta_box($post) {
             <?php endforeach; ?>
         </select>
     </p>
-    <p class="description"><?php _e('Choose a custom template for this post.', 'product-review-system'); ?></p>
+    <p class="description"><?php _e('Choose a custom template for this post.', 'advanced-product-review-system'); ?></p>
     <?php
 }
 
@@ -127,10 +127,10 @@ function custom_template_admin_notice() {
     if ($screen->id === 'post') {
         ?>
         <div class="notice notice-info is-dismissible">
-            <p><strong><?php _e('Custom Templates:', 'product-review-system'); ?></strong> <?php _e('Place your custom template files in either:', 'product-review-system'); ?></p>
+            <p><strong><?php _e('Custom Templates:', 'advanced-product-review-system'); ?></strong> <?php _e('Place your custom template files in either:', 'advanced-product-review-system'); ?></p>
             <ul style="list-style: disc; margin-left: 20px;">
-                <li><code><?php echo esc_html(plugin_dir_path(__FILE__)); ?></code> (<?php _e('Plugin folder', 'product-review-system'); ?>)</li>
-                <li><code><?php echo esc_html(get_stylesheet_directory()); ?>/</code> (<?php _e('Theme folder', 'product-review-system'); ?>)</li>
+                <li><code><?php echo esc_html(plugin_dir_path(__FILE__)); ?></code> (<?php _e('Plugin folder', 'advanced-product-review-system'); ?>)</li>
+                <li><code><?php echo esc_html(get_stylesheet_directory()); ?>/</code> (<?php _e('Theme folder', 'advanced-product-review-system'); ?>)</li>
             </ul>
         </div>
         <?php
