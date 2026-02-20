@@ -98,7 +98,7 @@ class PRS_Frontend_Display {
         if (!empty($product_prices)) {
             $output .= '<div class="collapsible-section price-section">';
             $output .= '<div class="collapsible-header" onclick="toggleCollapsible(this)">';
-            $output .= get_the_title() . ' - ' . __('Price Comparison', 'advanced-product-review-system');
+            $output .= esc_html(get_the_title()) . ' - ' . esc_html__('Price Comparison', 'advanced-product-review-system');
             $output .= '</div>';
             $output .= '<div class="collapsible-content">';
             $output .= '<div class="price-comparison-container">';

@@ -6,7 +6,7 @@
  * Custom single post template for product reviews
  * Place this file in your theme folder
  */
-
+ if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(); ?>
 
 <style>
@@ -147,21 +147,21 @@ get_header(); ?>
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M8 8a3 3 0 1 0 0-6 3 3 0 0 0 0 6zm2-3a2 2 0 1 1-4 0 2 2 0 0 1 4 0zm4 8c0 1-1 1-1 1H3s-1 0-1-1 1-4 6-4 6 3 6 4zm-1-.004c-.001-.246-.154-.986-.832-1.664C11.516 10.68 10.289 10 8 10c-2.29 0-3.516.68-4.168 1.332-.678.678-.83 1.418-.832 1.664h10z"/>
                 </svg>
-                <?php _e('By', 'advanced-product-review-system'); ?> <?php the_author(); ?>
+                <?php esc_html_e('By', 'advanced-product-review-system'); ?> <?php echo esc_html(get_the_author()); ?>
             </span>
             <span>
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M11 6.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v1a.5.5 0 0 1-.5.5h-1a.5.5 0 0 1-.5-.5v-1z"/>
                     <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zM1 4v10a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1V4H1z"/>
                 </svg>
-                <?php echo get_the_date(); ?>
+                <?php echo esc_html(get_the_date()); ?>
             </span>
             <span>
                 <svg width="16" height="16" fill="currentColor" viewBox="0 0 16 16">
                     <path d="M2.5 8a5.5 5.5 0 0 1 8.25-4.764.5.5 0 0 0 .5-.866A6.5 6.5 0 1 0 14.5 8a.5.5 0 0 0-1 0 5.5 5.5 0 1 1-11 0z"/>
                     <path d="M15.354 3.354a.5.5 0 0 0-.708-.708L8 9.293 5.354 6.646a.5.5 0 1 0-.708.708l3 3a.5.5 0 0 0 .708 0l7-7z"/>
                 </svg>
-                <?php _e('Updated:', 'advanced-product-review-system'); ?> <?php echo get_the_modified_date(); ?>
+                <?php esc_html_e('Updated:', 'advanced-product-review-system'); ?> <?php echo esc_html(get_the_modified_date()); ?>
             </span>
         </div>
         
@@ -207,7 +207,7 @@ get_header(); ?>
                             <?php echo esc_html($overall_rating); ?>
                         </div>
                         <div style="font-size: 14px; color: #666; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">
-                            <?php _e('Overall Score', 'advanced-product-review-system'); ?>
+                            <?php esc_html_e('Overall Score', 'advanced-product-review-system'); ?>
                         </div>
                     </div>
                 </div>
@@ -216,7 +216,7 @@ get_header(); ?>
                 <!-- Quick Specs Widget -->
                 <?php if (!empty($features) && is_array($features)) : ?>
                 <div class="sidebar-widget">
-                    <h3><?php _e('Quick Specs', 'advanced-product-review-system'); ?></h3>
+                    <h3><?php esc_html_e('Quick Specs', 'advanced-product-review-system'); ?></h3>
                     <ul class="quick-specs-list">
                         <?php 
                         $count = 0;
@@ -240,7 +240,7 @@ get_header(); ?>
                 <!-- Best Price Widget -->
                 <?php if (!empty($product_prices) && is_array($product_prices)) : ?>
                 <div class="sidebar-widget">
-                    <h3><?php _e('Best Price', 'advanced-product-review-system'); ?></h3>
+                    <h3><?php esc_html_e('Best Price', 'advanced-product-review-system'); ?></h3>
                     <?php
                     // Find the lowest price
                     $lowest_price = null;
@@ -257,7 +257,7 @@ get_header(); ?>
                     ?>
                     <div style="text-align: center; padding: 15px;">
                         <div style="font-size: 14px; color: #666; margin-bottom: 10px;">
-                            <?php _e('Lowest Price at', 'advanced-product-review-system'); ?>
+                            <?php esc_html_e('Lowest Price at', 'advanced-product-review-system'); ?>
                         </div>
                         <div style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 5px;">
                             <?php echo esc_html($lowest_price['store']); ?>
@@ -270,7 +270,7 @@ get_header(); ?>
                            target="_blank" 
                            rel="nofollow"
                            style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; margin-top: 10px;">
-                            <?php _e('Buy Now', 'advanced-product-review-system'); ?>
+                            <?php esc_html_e('Buy Now', 'advanced-product-review-system'); ?>
                         </a>
                         <?php endif; ?>
                     </div>
@@ -280,22 +280,22 @@ get_header(); ?>
                 
                 <!-- Share Widget -->
                 <div class="sidebar-widget">
-                    <h3><?php _e('Share This Review', 'advanced-product-review-system'); ?></h3>
+                    <h3><?php esc_html_e('Share This Review', 'advanced-product-review-system'); ?></h3>
                     <div style="display: flex; gap: 10px; flex-wrap: wrap;">
                         <a href="https://www.facebook.com/sharer/sharer.php?u=<?php echo urlencode(get_permalink()); ?>" 
                            target="_blank"
                            style="flex: 1; padding: 10px; background: #3b5998; color: white; text-align: center; border-radius: 5px; text-decoration: none; min-width: 80px;">
-                            <?php _e('Facebook', 'advanced-product-review-system'); ?>
+                            <?php esc_html_e('Facebook', 'advanced-product-review-system'); ?>
                         </a>
                         <a href="https://twitter.com/intent/tweet?url=<?php echo urlencode(get_permalink()); ?>&text=<?php echo urlencode(get_the_title()); ?>" 
                            target="_blank"
                            style="flex: 1; padding: 10px; background: #1da1f2; color: white; text-align: center; border-radius: 5px; text-decoration: none; min-width: 80px;">
-                            <?php _e('Twitter', 'advanced-product-review-system'); ?>
+                            <?php esc_html_e('Twitter', 'advanced-product-review-system'); ?>
                         </a>
                         <a href="https://wa.me/?text=<?php echo urlencode(get_the_title() . ' - ' . get_permalink()); ?>" 
                            target="_blank"
                            style="flex: 1; padding: 10px; background: #25d366; color: white; text-align: center; border-radius: 5px; text-decoration: none; min-width: 80px;">
-                            <?php _e('WhatsApp', 'advanced-product-review-system'); ?>
+                            <?php esc_html_e('WhatsApp', 'advanced-product-review-system'); ?>
                         </a>
                     </div>
                 </div>

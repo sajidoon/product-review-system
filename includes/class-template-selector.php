@@ -3,7 +3,7 @@
  * Template Selector Class
  * Handles custom post template assignment
  */
-
+ if ( ! defined( 'ABSPATH' ) ) exit;
 // Add custom templates to template dropdown
 function add_custom_post_templates($templates) {
     $templates['single-product-review.php'] = __('Product Review Template', 'advanced-product-review-system');
@@ -84,7 +84,7 @@ function render_template_selector_meta_box($post) {
     
     ?>
     <p>
-        <label for="page_template"><strong><?php _e('Select Template:', 'advanced-product-review-system'); ?></strong></label>
+        <label for="page_template"><strong><?php esc_html_e('Select Template:', 'advanced-product-review-system'); ?></strong></label>
         <select name="page_template" id="page_template" class="widefat">
             <?php foreach ($templates as $template_file => $template_name) : ?>
                 <option value="<?php echo esc_attr($template_file); ?>" <?php selected($current_template, $template_file); ?>>
@@ -93,14 +93,15 @@ function render_template_selector_meta_box($post) {
             <?php endforeach; ?>
         </select>
     </p>
-    <p class="description"><?php _e('Choose a custom template for this post.', 'advanced-product-review-system'); ?></p>
+    <p class="description"><?php esc_html_e('Choose a custom template for this post.', 'advanced-product-review-system'); ?></p>
     <?php
 }
 
 // Save template selection
 function save_post_template_selection($post_id) {
     // Check nonce
-    if (!isset($_POST['post_template_nonce']) || !wp_verify_nonce($_POST['post_template_nonce'], 'save_post_template')) {
+    $nonce = isset($_POST['post_template_nonce']) ? sanitize_text_field(wp_unslash($_POST['post_template_nonce'])) : '';
+    if (!$nonce || !wp_verify_nonce($nonce, 'save_post_template')) {
         return $post_id;
     }
     
@@ -116,7 +117,7 @@ function save_post_template_selection($post_id) {
     
     // Save template
     if (isset($_POST['page_template'])) {
-        update_post_meta($post_id, '_wp_page_template', sanitize_text_field($_POST['page_template']));
+        update_post_meta($post_id, '_wp_page_template', sanitize_text_field(wp_unslash($_POST['page_template'])));
     }
 }
 add_action('save_post', 'save_post_template_selection');
@@ -127,10 +128,10 @@ function custom_template_admin_notice() {
     if ($screen->id === 'post') {
         ?>
         <div class="notice notice-info is-dismissible">
-            <p><strong><?php _e('Custom Templates:', 'advanced-product-review-system'); ?></strong> <?php _e('Place your custom template files in either:', 'advanced-product-review-system'); ?></p>
+            <p><strong><?php esc_html_e('Custom Templates:', 'advanced-product-review-system'); ?></strong> <?php esc_html_e('Place your custom template files in either:', 'advanced-product-review-system'); ?></p>
             <ul style="list-style: disc; margin-left: 20px;">
-                <li><code><?php echo esc_html(plugin_dir_path(__FILE__)); ?></code> (<?php _e('Plugin folder', 'advanced-product-review-system'); ?>)</li>
-                <li><code><?php echo esc_html(get_stylesheet_directory()); ?>/</code> (<?php _e('Theme folder', 'advanced-product-review-system'); ?>)</li>
+                <li><code><?php echo esc_html(plugin_dir_path(__FILE__)); ?></code> (<?php esc_html_e('Plugin folder', 'advanced-product-review-system'); ?>)</li>
+                <li><code><?php echo esc_html(get_stylesheet_directory()); ?>/</code> (<?php esc_html_e('Theme folder', 'advanced-product-review-system'); ?>)</li>
             </ul>
         </div>
         <?php

@@ -53,7 +53,7 @@ class PRS_Settings {
         }
 
         // Redirect back with success message
-        wp_redirect(add_query_arg(array('page' => 'prs-settings', 'settings-updated' => 'true', 'prs-reset' => 'true'), admin_url('admin.php')));
+        wp_safe_redirect(add_query_arg(array('page' => 'prs-settings', 'settings-updated' => 'true', 'prs-reset' => 'true'), admin_url('admin.php'))); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
         exit;
     }
 
@@ -73,7 +73,7 @@ class PRS_Settings {
         );
 
         wp_enqueue_style('wp-color-picker');
-        wp_enqueue_script('prs-admin-script', PRS_PLUGIN_URL . 'assets/js/admin.js', array('wp-color-picker'), false, true);
+        wp_enqueue_script('prs-admin-script', PRS_PLUGIN_URL . 'assets/js/admin.js', array('wp-color-picker'), PRS_VERSION, true);
     }
     
     /**
@@ -351,11 +351,12 @@ class PRS_Settings {
     public function render_settings_page() {
         ?>
         <div class="wrap prs-settings-wrap">
-            <h1><?php _e('Product Review Settings', 'advanced-product-review-system'); ?></h1>
+            <h1><?php esc_html_e('Product Review Settings', 'advanced-product-review-system'); ?></h1>
             
-            <?php if (isset($_GET['prs-reset']) && $_GET['prs-reset'] == 'true') : ?>
+            <?php // phpcs:ignore WordPress.Security.NonceVerification.Recommended -- UI notice only
+            if (isset($_GET['prs-reset']) && $_GET['prs-reset'] == 'true') : ?>
                 <div class="notice notice-info is-dismissible">
-                    <p><?php _e('Settings have been reset to defaults.', 'advanced-product-review-system'); ?></p>
+                    <p><?php esc_html_e('Settings have been reset to defaults.', 'advanced-product-review-system'); ?></p>
                 </div>
             <?php endif; ?>
             <form method="post" action="options.php"> <!-- Updated Form Action -->
@@ -365,7 +366,7 @@ class PRS_Settings {
                 submit_button(); ?>
             </form>
             
-            <form method="post" action="<?php echo admin_url('admin-post.php'); ?>" style="margin-top: -50px; margin-left: 150px; display: inline-block;">
+            <form method="post" action="<?php echo esc_url(admin_url('admin-post.php')); ?>" style="margin-top: -50px; margin-left: 150px; display: inline-block;">
                 <input type="hidden" name="action" value="prs_reset_settings">
                 <?php wp_nonce_field('prs_reset_action', 'prs_reset_nonce'); ?>
                 <?php submit_button(__('Reset to Defaults', 'advanced-product-review-system'), 'secondary', 'prs_reset', false, array('onclick' => 'return confirm("' . __('Are you sure you want to reset all settings?', 'advanced-product-review-system') . '");')); ?>
@@ -395,7 +396,7 @@ class PRS_Settings {
                 </option>
             <?php endforeach; ?>
         </select>
-        <p class="description"><?php _e('This template will be used if "Default Template" is selected on the post.', 'advanced-product-review-system'); ?></p>
+        <p class="description"><?php esc_html_e('This template will be used if "Default Template" is selected on the post.', 'advanced-product-review-system'); ?></p>
         <?php
     }
 

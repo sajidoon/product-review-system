@@ -5,7 +5,7 @@
  * 
  * Simple, clean single post template for product reviews
  */
-
+ if ( ! defined( 'ABSPATH' ) ) exit;
 get_header(); ?>
 
 
@@ -21,8 +21,8 @@ get_header(); ?>
             <h1 class="minimal-post-title"><?php the_title(); ?></h1>
             
             <div class="minimal-post-meta">
-                <span><?php _e('By', 'advanced-product-review-system'); ?> <?php the_author(); ?></span>
-                <span><?php echo get_the_date('F j, Y'); ?></span>
+                <span><?php esc_html_e('By', 'advanced-product-review-system'); ?> <?php echo esc_html(get_the_author()); ?></span>
+                <span><?php echo esc_html(get_the_date('F j, Y')); ?></span>
             </div>
         </header>
         
@@ -58,7 +58,7 @@ get_header(); ?>
     ?>
     <div class="minimal-rating-badge">
         <div class="score"><?php echo esc_html($overall_rating); ?></div>
-        <div class="label"><?php _e('Score', 'advanced-product-review-system'); ?></div>
+        <div class="label"><?php esc_html_e('Score', 'advanced-product-review-system'); ?></div>
     </div>
     <?php endif; ?>
     

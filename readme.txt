@@ -2,8 +2,8 @@
 Contributors: sajidiqbal
 Tags: product review, comparison, rating, schema, woocommerce
 Requires at least: 5.0
-Tested up to: 6.4
-Stable tag: 2.0.0
+Tested up to: 6.9
+Stable tag: 2.1.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -71,6 +71,14 @@ The settings are available in the main WordPress sidebar under the **Review Sett
 3.  **Settings:** The global settings page with modern UI.
 
 == Changelog ==
+
+= 2.1.0 =
+* Enhanced Security: Implemented proper escaping for all dynamic frontend and admin output.
+* Performance: Added wp_unslash() and rigorous sanitization to all input handling logic.
+* Bug Fixes: Corrected syntax errors in esc_html_e calls and fixed undefined function typos.
+* WordPress 4.6+ Compatibility: Removed discouraged load_plugin_textdomain() call.
+* Repository Compliance: Created missing languages/ directory and removed hidden repository files.
+* Security: Upgraded redirect logic to use wp_safe_redirect() with proper exit calls.
 
 = 2.0.0 =
 *   Revamped Settings UI with modern aesthetics.

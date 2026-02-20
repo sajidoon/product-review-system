@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Advanced Product Review System
  * Description: Complete product review system with ratings, price comparison, specifications, and custom templates
- * Version: 2.0.0
+ * Version: 2.1.0
  * Author: Sajid Iqbal
  * Author URI: https://www.linkedin.com/in/muhammad-sajid-iqbal-7bb56a1a1/
  * License: GPL v2 or later
@@ -17,7 +17,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Define plugin constants
-define('PRS_VERSION', '2.0.0');
+define('PRS_VERSION', '2.1.0');
 define('PRS_PLUGIN_DIR', plugin_dir_path(__FILE__));
 define('PRS_PLUGIN_URL', plugin_dir_url(__FILE__));
 define('PRS_PLUGIN_FILE', __FILE__);
@@ -53,10 +53,7 @@ class Advanced_Product_Review_System {
      * Initialize plugin
      */
     private function init() {
-        // Load Text Domain on init
-        add_action('init', function() {
-            load_plugin_textdomain('advanced-product-review-system', false, dirname(plugin_basename(PRS_PLUGIN_FILE)) . '/languages');
-        }, 1);
+
 
         // Load components
         require_once PRS_PLUGIN_DIR . 'includes/class-meta-boxes.php';
@@ -145,7 +142,7 @@ class Advanced_Product_Review_System {
                 
                 --prs-bg-color: <?php echo esc_attr($bg_color); ?>;
                 --prs-text-color: <?php echo esc_attr($text_color); ?>;
-                --prs-font-family: <?php echo html_entity_decode(esc_attr($font_family)); ?>;
+                --prs-font-family: <?php echo esc_html($font_family); ?>;
                 --prs-max-width: <?php echo esc_attr($max_width); ?>px;
                 
                 --prs-price-grad-1: <?php echo esc_attr($price_grad_1); ?>;

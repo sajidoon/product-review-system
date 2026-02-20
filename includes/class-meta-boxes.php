@@ -3,6 +3,9 @@
  * Meta Boxes Class
  * Handles all admin meta boxes for product information
  */
+if (!defined('ABSPATH')) {
+    exit;
+}
 
 // Enqueue CSS and JS
 function enqueue_advanced_product_styles() {
@@ -55,28 +58,28 @@ function render_advanced_product_meta_box($post) {
         
         <!-- Overall Rating -->
         <div class="meta-section">
-            <h3><?php _e('Overall Rating', 'advanced-product-review-system'); ?></h3>
-            <label><?php _e('Rating Score (0-10):', 'advanced-product-review-system'); ?></label>
+            <h3><?php esc_html_e('Overall Rating', 'advanced-product-review-system'); ?></h3>
+            <label><?php esc_html_e('Rating Score (0-10):', 'advanced-product-review-system'); ?></label>
             <input type="number" step="0.1" min="0" max="10" name="overall_rating" value="<?php echo esc_attr($overall_rating); ?>" class="widefat" />
             
             <label style="margin-top: 10px;">
                 <input type="checkbox" name="editor_choice" value="1" <?php checked($editor_choice, '1'); ?> />
-                <?php _e("Editor's Choice", 'advanced-product-review-system'); ?>
+                <?php esc_html_e("Editor's Choice", 'advanced-product-review-system'); ?>
             </label>
         </div>
 
         <!-- Ratings Section -->
         <div class="meta-section">
-            <h3><?php _e('Detailed Ratings', 'advanced-product-review-system'); ?></h3>
+            <h3><?php esc_html_e('Detailed Ratings', 'advanced-product-review-system'); ?></h3>
             <div id="ratings-container">
                 <?php
                 if (!empty($ratings)) {
                     foreach ($ratings as $index => $rating) {
                         ?>
-                        <div class="rating-item" id="rating-item-<?php echo $index; ?>">
-                            <input type="text" name="ratings[<?php echo $index; ?>][label]" value="<?php echo esc_attr($rating['label']); ?>" placeholder="<?php esc_attr_e('Rating Label (e.g., Design)', 'advanced-product-review-system'); ?>" class="widefat" />
-                            <input type="number" step="0.1" min="0" max="10" name="ratings[<?php echo $index; ?>][score]" value="<?php echo esc_attr($rating['score']); ?>" placeholder="<?php esc_attr_e('Score (0-10)', 'advanced-product-review-system'); ?>" class="widefat" />
-                            <button type="button" class="button remove-rating" data-index="<?php echo $index; ?>"><?php _e('Remove', 'advanced-product-review-system'); ?></button>
+                        <div class="rating-item" id="rating-item-<?php echo esc_attr($index); ?>">
+                            <input type="text" name="ratings[<?php echo esc_attr($index); ?>][label]" value="<?php echo esc_attr($rating['label']); ?>" placeholder="<?php esc_attr_e('Rating Label (e.g., Design)', 'advanced-product-review-system'); ?>" class="widefat" />
+                            <input type="number" step="0.1" min="0" max="10" name="ratings[<?php echo esc_attr($index); ?>][score]" value="<?php echo esc_attr($rating['score']); ?>" placeholder="<?php esc_attr_e('Score (0-10)', 'advanced-product-review-system'); ?>" class="widefat" />
+                            <button type="button" class="button remove-rating" data-index="<?php echo esc_attr($index); ?>"><?php esc_html_e('Remove', 'advanced-product-review-system'); ?></button>
                             <hr />
                         </div>
                         <?php
@@ -86,68 +89,68 @@ function render_advanced_product_meta_box($post) {
                     <div class="rating-item" id="rating-item-0">
                         <input type="text" name="ratings[0][label]" placeholder="<?php esc_attr_e('Rating Label', 'advanced-product-review-system'); ?>" class="widefat" />
                         <input type="number" step="0.1" min="0" max="10" name="ratings[0][score]" placeholder="<?php esc_attr_e('Score (0-10)', 'advanced-product-review-system'); ?>" class="widefat" />
-                        <button type="button" class="button remove-rating" data-index="0"><?php _e('Remove', 'advanced-product-review-system'); ?></button>
+                        <button type="button" class="button remove-rating" data-index="0"><?php esc_html_e('Remove', 'advanced-product-review-system'); ?></button>
                         <hr />
                     </div>
                     <?php
                 }
                 ?>
             </div>
-            <button type="button" id="add-rating-button" class="button"><?php _e('Add Rating', 'advanced-product-review-system'); ?></button>
+            <button type="button" id="add-rating-button" class="button"><?php esc_html_e('Add Rating', 'advanced-product-review-system'); ?></button>
         </div>
 
         <!-- Pros Section -->
         <div class="meta-section">
-            <h3><?php _e('Pros', 'advanced-product-review-system'); ?></h3>
+            <h3><?php esc_html_e('Pros', 'advanced-product-review-system'); ?></h3>
             <div id="pros-container">
                 <?php
                 if (!empty($pros)) {
                     foreach ($pros as $index => $pro) {
                         ?>
-                        <div class="pro-item" id="pro-item-<?php echo $index; ?>">
-                            <input type="text" name="pros[<?php echo $index; ?>]" value="<?php echo esc_attr($pro); ?>" class="widefat" />
-                            <button type="button" class="button remove-pro" data-index="<?php echo $index; ?>"><?php _e('Remove', 'advanced-product-review-system'); ?></button>
+                        <div class="pro-item" id="pro-item-<?php echo esc_attr($index); ?>">
+                            <input type="text" name="pros[<?php echo esc_attr($index); ?>]" value="<?php echo esc_attr($pro); ?>" class="widefat" />
+                            <button type="button" class="button remove-pro" data-index="<?php echo esc_attr($index); ?>"><?php esc_html_e('Remove', 'advanced-product-review-system'); ?></button>
                         </div>
                         <?php
                     }
                 }
                 ?>
             </div>
-            <button type="button" id="add-pro-button" class="button"><?php _e('Add Pro', 'advanced-product-review-system'); ?></button>
+            <button type="button" id="add-pro-button" class="button"><?php esc_html_e('Add Pro', 'advanced-product-review-system'); ?></button>
         </div>
 
         <!-- Cons Section -->
         <div class="meta-section">
-            <h3><?php _e('Cons', 'advanced-product-review-system'); ?></h3>
+            <h3><?php esc_html_e('Cons', 'advanced-product-review-system'); ?></h3>
             <div id="cons-container">
                 <?php
                 if (!empty($cons)) {
                     foreach ($cons as $index => $con) {
                         ?>
-                        <div class="con-item" id="con-item-<?php echo $index; ?>">
-                            <input type="text" name="cons[<?php echo $index; ?>]" value="<?php echo esc_attr($con); ?>" class="widefat" />
-                            <button type="button" class="button remove-con" data-index="<?php echo $index; ?>"><?php _e('Remove', 'advanced-product-review-system'); ?></button>
+                        <div class="con-item" id="con-item-<?php echo esc_attr($index); ?>">
+                            <input type="text" name="cons[<?php echo esc_attr($index); ?>]" value="<?php echo esc_attr($con); ?>" class="widefat" />
+                            <button type="button" class="button remove-con" data-index="<?php echo esc_attr($index); ?>"><?php esc_html_e('Remove', 'advanced-product-review-system'); ?></button>
                         </div>
                         <?php
                     }
                 }
                 ?>
             </div>
-            <button type="button" id="add-con-button" class="button"><?php _e('Add Con', 'advanced-product-review-system'); ?></button>
+            <button type="button" id="add-con-button" class="button"><?php esc_html_e('Add Con', 'advanced-product-review-system'); ?></button>
         </div>
 
         <!-- Features Section -->
         <div class="meta-section">
-            <h3><?php _e('Product Specifications', 'advanced-product-review-system'); ?></h3>
+            <h3><?php esc_html_e('Product Specifications', 'advanced-product-review-system'); ?></h3>
             <div id="features-container">
                 <?php
                 if (!empty($features)) {
                     foreach ($features as $index => $feature) {
                         ?>
-                        <div class="feature-item" id="feature-item-<?php echo $index; ?>">
-                            <input type="text" name="features[<?php echo $index; ?>][title]" value="<?php echo esc_attr($feature['title']); ?>" placeholder="<?php esc_attr_e('Feature Title', 'advanced-product-review-system'); ?>" class="widefat" />
-                            <textarea name="features[<?php echo $index; ?>][detail]" placeholder="<?php esc_attr_e('Feature Detail', 'advanced-product-review-system'); ?>" class="widefat"><?php echo esc_textarea($feature['detail']); ?></textarea>
-                            <button type="button" class="button remove-feature" data-index="<?php echo $index; ?>"><?php _e('Remove', 'advanced-product-review-system'); ?></button>
+                        <div class="feature-item" id="feature-item-<?php echo esc_attr($index); ?>">
+                            <input type="text" name="features[<?php echo esc_attr($index); ?>][title]" value="<?php echo esc_attr($feature['title']); ?>" placeholder="<?php esc_attr_e('Feature Title', 'advanced-product-review-system'); ?>" class="widefat" />
+                            <textarea name="features[<?php echo esc_attr($index); ?>][detail]" placeholder="<?php esc_attr_e('Feature Detail', 'advanced-product-review-system'); ?>" class="widefat"><?php echo esc_textarea($feature['detail']); ?></textarea>
+                            <button type="button" class="button remove-feature" data-index="<?php echo esc_attr($index); ?>"><?php esc_html_e('Remove', 'advanced-product-review-system'); ?></button>
                             <hr />
                         </div>
                         <?php
@@ -155,23 +158,23 @@ function render_advanced_product_meta_box($post) {
                 }
                 ?>
             </div>
-            <button type="button" id="add-feature-button" class="button"><?php _e('Add Feature', 'advanced-product-review-system'); ?></button>
+            <button type="button" id="add-feature-button" class="button"><?php esc_html_e('Add Feature', 'advanced-product-review-system'); ?></button>
         </div>
 
         <!-- Price Comparison -->
         <div class="meta-section">
-            <h3><?php _e('Price Comparison', 'advanced-product-review-system'); ?></h3>
+            <h3><?php esc_html_e('Price Comparison', 'advanced-product-review-system'); ?></h3>
             <div id="price-comparison-container">
                 <?php
                 if (!empty($product_prices)) {
                     foreach ($product_prices as $index => $price) {
                         ?>
-                        <div class="price-item" id="price-item-<?php echo $index; ?>">
-                            <input type="text" name="product_prices[<?php echo $index; ?>][store]" value="<?php echo esc_attr($price['store']); ?>" placeholder="<?php esc_attr_e('Store Name', 'advanced-product-review-system'); ?>" class="widefat" />
-                            <input type="text" name="product_prices[<?php echo $index; ?>][price]" value="<?php echo esc_attr($price['price']); ?>" placeholder="<?php esc_attr_e('Price', 'advanced-product-review-system'); ?>" class="widefat" />
-                            <input type="text" name="product_prices[<?php echo $index; ?>][url]" value="<?php echo esc_attr($price['url']); ?>" placeholder="<?php esc_attr_e('Buy URL', 'advanced-product-review-system'); ?>" class="widefat" />
-                            <input type="text" name="product_prices[<?php echo $index; ?>][stock]" value="<?php echo esc_attr($price['stock']); ?>" placeholder="<?php esc_attr_e('Stock Status', 'advanced-product-review-system'); ?>" class="widefat" />
-                            <button type="button" class="button remove-price-button" data-index="<?php echo $index; ?>"><?php _e('Remove', 'advanced-product-review-system'); ?></button>
+                        <div class="price-item" id="price-item-<?php echo esc_attr($index); ?>">
+                            <input type="text" name="product_prices[<?php echo esc_attr($index); ?>][store]" value="<?php echo esc_attr($price['store']); ?>" placeholder="<?php esc_attr_e('Store Name', 'advanced-product-review-system'); ?>" class="widefat" />
+                            <input type="text" name="product_prices[<?php echo esc_attr($index); ?>][price]" value="<?php echo esc_attr($price['price']); ?>" placeholder="<?php esc_attr_e('Price', 'advanced-product-review-system'); ?>" class="widefat" />
+                            <input type="text" name="product_prices[<?php echo esc_attr($index); ?>][url]" value="<?php echo esc_attr($price['url']); ?>" placeholder="<?php esc_attr_e('Buy URL', 'advanced-product-review-system'); ?>" class="widefat" />
+                            <input type="text" name="product_prices[<?php echo esc_attr($index); ?>][stock]" value="<?php echo esc_attr($price['stock']); ?>" placeholder="<?php esc_attr_e('Stock Status', 'advanced-product-review-system'); ?>" class="widefat" />
+                            <button type="button" class="button remove-price-button" data-index="<?php echo esc_attr($index); ?>"><?php esc_html_e('Remove', 'advanced-product-review-system'); ?></button>
                             <hr />
                         </div>
                         <?php
@@ -179,7 +182,7 @@ function render_advanced_product_meta_box($post) {
                 }
                 ?>
             </div>
-            <button type="button" id="add-price-button" class="button"><?php _e('Add Store Price', 'advanced-product-review-system'); ?></button>
+            <button type="button" id="add-price-button" class="button"><?php esc_html_e('Add Store Price', 'advanced-product-review-system'); ?></button>
         </div>
 
     </div>
@@ -292,22 +295,24 @@ function render_advanced_product_meta_box($post) {
 
 // Save Meta Box Data
 function save_advanced_product_meta($post_id) {
-    if (!isset($_POST['advanced_product_nonce']) || !wp_verify_nonce($_POST['advanced_product_nonce'], 'save_advanced_product')) {
+    $nonce = isset($_POST['advanced_product_nonce']) ? sanitize_text_field(wp_unslash($_POST['advanced_product_nonce'])) : '';
+    if (!$nonce || !wp_verify_nonce($nonce, 'save_advanced_product')) {
         return $post_id;
     }
 
     // Save Overall Rating
     if (isset($_POST['overall_rating'])) {
-        update_post_meta($post_id, '_overall_rating', sanitize_text_field($_POST['overall_rating']));
+        update_post_meta($post_id, '_overall_rating', sanitize_text_field(wp_unslash($_POST['overall_rating'])));
     }
 
     // Save Editor's Choice
     update_post_meta($post_id, '_editor_choice', isset($_POST['editor_choice']) ? '1' : '');
 
-    // Save Ratings
-    if (isset($_POST['ratings']) && is_array($_POST['ratings'])) {
+    // Save Ratings - Sanitization happens inside the loop below
+    $posted_ratings = isset($_POST['ratings']) ? (array) wp_unslash($_POST['ratings']) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+    if (!empty($posted_ratings)) {
         $ratings = [];
-        foreach ($_POST['ratings'] as $rating) {
+        foreach ($posted_ratings as $rating) {
             if (!empty($rating['label'])) {
                 $ratings[] = [
                     'label' => sanitize_text_field($rating['label']),
@@ -320,23 +325,24 @@ function save_advanced_product_meta($post_id) {
 
     // Save Pros
     if (isset($_POST['pros']) && is_array($_POST['pros'])) {
-        $pros = array_filter(array_map('sanitize_text_field', $_POST['pros']));
+        $pros = array_filter(array_map('sanitize_text_field', wp_unslash($_POST['pros'])));
         update_post_meta($post_id, '_pros', $pros);
     }
 
     // Save Cons
     if (isset($_POST['cons']) && is_array($_POST['cons'])) {
-        $cons = array_filter(array_map('sanitize_text_field', $_POST['cons']));
+        $cons = array_filter(array_map('sanitize_text_field', wp_unslash($_POST['cons'])));
         update_post_meta($post_id, '_cons', $cons);
     }
 
-    // Save Features
-    if (isset($_POST['features']) && is_array($_POST['features'])) {
+    // Save Features - Sanitization happens inside the loop below
+    $posted_features = isset($_POST['features']) ? (array) wp_unslash($_POST['features']) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+    if (!empty($posted_features)) {
         $features = [];
-        foreach ($_POST['features'] as $feature) {
+        foreach ($posted_features as $feature) {
             if (!empty($feature['title'])) {
                 $features[] = [
-                    'title' => sanitize_text_field($feature['title']),
+                    'title'  => sanitize_text_field($feature['title']),
                     'detail' => sanitize_textarea_field($feature['detail']),
                 ];
             }
@@ -344,15 +350,16 @@ function save_advanced_product_meta($post_id) {
         update_post_meta($post_id, '_features', $features);
     }
 
-    // Save Prices
-    if (isset($_POST['product_prices']) && is_array($_POST['product_prices'])) {
+    // Save Prices - Sanitization happens inside the loop below
+    $posted_prices = isset($_POST['product_prices']) ? (array) wp_unslash($_POST['product_prices']) : []; // phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized
+    if (!empty($posted_prices)) {
         $product_prices = [];
-        foreach ($_POST['product_prices'] as $price) {
+        foreach ($posted_prices as $price) {
             if (!empty($price['store'])) {
                 $product_prices[] = [
                     'store' => sanitize_text_field($price['store']),
                     'price' => sanitize_text_field($price['price']),
-                    'url' => esc_url_raw($price['url']),
+                    'url'   => esc_url_raw($price['url']),
                     'stock' => sanitize_text_field($price['stock']),
                 ];
             }

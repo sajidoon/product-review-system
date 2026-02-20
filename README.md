@@ -151,6 +151,14 @@ For support and updates, contact:
 
 ## Changelog
 
+### Version 2.1.0
+- Enhanced Security: Implemented proper escaping for all dynamic frontend and admin output.
+- Performance: Added `wp_unslash()` and rigorous sanitization to all input handling logic.
+- Bug Fixes: Corrected syntax errors in `esc_html_e` calls and fixed undefined function typos.
+- WordPress 4.6+ Compatibility: Removed discouraged `load_plugin_textdomain()` call (WP 4.6 handles this automatically).
+- Repository Compliance: Created missing `languages/` directory and removed hidden `.git`/`.gitignore` files.
+- Security: Upgraded redirect logic to use `wp_safe_redirect()` with proper exit calls.
+
 ### Version 2.0.0
 - Revamped Settings UI with modern aesthetics.
 - Added WordPress Color Picker integration.
