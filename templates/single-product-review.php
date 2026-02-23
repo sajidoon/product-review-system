@@ -194,17 +194,17 @@ get_header(); ?>
                 
                 <?php
                 // Get product data
-                $overall_rating = get_post_meta(get_the_ID(), '_overall_rating', true);
-                $features = get_post_meta(get_the_ID(), '_features', true);
-                $product_prices = get_post_meta(get_the_ID(), '_product_prices', true);
+                $aprs_overall_rating = get_post_meta(get_the_ID(), '_overall_rating', true);
+                $aprs_features = get_post_meta(get_the_ID(), '_features', true);
+                $aprs_product_prices = get_post_meta(get_the_ID(), '_product_prices', true);
                 ?>
                 
                 <!-- Overall Rating Widget -->
-                <?php if (!empty($overall_rating)) : ?>
+                <?php if (!empty($aprs_overall_rating)) : ?>
                 <div class="sidebar-widget">
                     <div style="text-align: center; padding: 20px;">
                         <div style="font-size: 60px; font-weight: bold; color: #667eea; line-height: 1;">
-                            <?php echo esc_html($overall_rating); ?>
+                            <?php echo esc_html($aprs_overall_rating); ?>
                         </div>
                         <div style="font-size: 14px; color: #666; margin-top: 10px; text-transform: uppercase; letter-spacing: 1px;">
                             <?php esc_html_e('Overall Score', 'advanced-product-review-system'); ?>
@@ -214,22 +214,22 @@ get_header(); ?>
                 <?php endif; ?>
                 
                 <!-- Quick Specs Widget -->
-                <?php if (!empty($features) && is_array($features)) : ?>
+                <?php if (!empty($aprs_features) && is_array($aprs_features)) : ?>
                 <div class="sidebar-widget">
                     <h3><?php esc_html_e('Quick Specs', 'advanced-product-review-system'); ?></h3>
                     <ul class="quick-specs-list">
                         <?php 
-                        $count = 0;
-                        foreach ($features as $feature) : 
-                            if ($count >= 5) break; // Show only first 5
-                            if (!empty($feature['title'])) :
+                        $aprs_count = 0;
+                        foreach ($aprs_features as $aprs_feature) : 
+                            if ($aprs_count >= 5) break; // Show only first 5
+                            if (!empty($aprs_feature['title'])) :
                         ?>
                         <li>
-                            <strong><?php echo esc_html($feature['title']); ?>:</strong>
-                            <span><?php echo esc_html($feature['detail']); ?></span>
+                            <strong><?php echo esc_html($aprs_feature['title']); ?>:</strong>
+                            <span><?php echo esc_html($aprs_feature['detail']); ?></span>
                         </li>
                         <?php 
-                            $count++;
+                            $aprs_count++;
                             endif;
                         endforeach; 
                         ?>
@@ -238,35 +238,35 @@ get_header(); ?>
                 <?php endif; ?>
                 
                 <!-- Best Price Widget -->
-                <?php if (!empty($product_prices) && is_array($product_prices)) : ?>
+                <?php if (!empty($aprs_product_prices) && is_array($aprs_product_prices)) : ?>
                 <div class="sidebar-widget">
                     <h3><?php esc_html_e('Best Price', 'advanced-product-review-system'); ?></h3>
                     <?php
                     // Find the lowest price
-                    $lowest_price = null;
-                    foreach ($product_prices as $price_item) {
-                        if (!empty($price_item['price']) && is_numeric($price_item['price'])) {
-                            if ($lowest_price === null || floatval($price_item['price']) < floatval($lowest_price['price'])) {
-                                $lowest_price = $price_item;
+                    $aprs_lowest_price = null;
+                    foreach ($aprs_product_prices as $aprs_price_item) {
+                        if (!empty($aprs_price_item['price']) && is_numeric($aprs_price_item['price'])) {
+                            if ($aprs_lowest_price === null || floatval($aprs_price_item['price']) < floatval($aprs_lowest_price['price'])) {
+                                $aprs_lowest_price = $aprs_price_item;
                             }
                         }
                     }
                     
-                    if ($lowest_price) :
-                        $formatted_price = number_format((float)$lowest_price['price']);
+                    if ($aprs_lowest_price) :
+                        $aprs_formatted_price = number_format((float)$aprs_lowest_price['price']);
                     ?>
                     <div style="text-align: center; padding: 15px;">
                         <div style="font-size: 14px; color: #666; margin-bottom: 10px;">
                             <?php esc_html_e('Lowest Price at', 'advanced-product-review-system'); ?>
                         </div>
                         <div style="font-size: 20px; font-weight: bold; color: #333; margin-bottom: 5px;">
-                            <?php echo esc_html($lowest_price['store']); ?>
+                            <?php echo esc_html($aprs_lowest_price['store']); ?>
                         </div>
                         <div style="font-size: 32px; font-weight: bold; color: #f5576c; margin: 15px 0;">
-                            ₹<?php echo esc_html($formatted_price); ?>
+                            ₹<?php echo esc_html($aprs_formatted_price); ?>
                         </div>
-                        <?php if (!empty($lowest_price['url'])) : ?>
-                        <a href="<?php echo esc_url($lowest_price['url']); ?>" 
+                        <?php if (!empty($aprs_lowest_price['url'])) : ?>
+                        <a href="<?php echo esc_url($aprs_lowest_price['url']); ?>" 
                            target="_blank" 
                            rel="nofollow"
                            style="display: inline-block; padding: 12px 30px; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; text-decoration: none; border-radius: 25px; font-weight: 600; margin-top: 10px;">

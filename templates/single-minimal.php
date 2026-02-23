@@ -53,11 +53,11 @@ get_header(); ?>
     
     <!-- Floating Rating Badge -->
     <?php
-    $overall_rating = get_post_meta(get_the_ID(), '_overall_rating', true);
-    if (!empty($overall_rating)) :
+    $aprs_overall_rating = get_post_meta(get_the_ID(), '_overall_rating', true);
+    if (!empty($aprs_overall_rating)) :
     ?>
     <div class="minimal-rating-badge">
-        <div class="score"><?php echo esc_html($overall_rating); ?></div>
+        <div class="score"><?php echo esc_html($aprs_overall_rating); ?></div>
         <div class="label"><?php esc_html_e('Score', 'advanced-product-review-system'); ?></div>
     </div>
     <?php endif; ?>

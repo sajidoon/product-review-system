@@ -5,16 +5,16 @@
  */
  if ( ! defined( 'ABSPATH' ) ) exit;
 // Add custom templates to template dropdown
-function add_custom_post_templates($templates) {
+function aprs_add_custom_post_templates($templates) {
     $templates['single-product-review.php'] = __('Product Review Template', 'advanced-product-review-system');
     $templates['single-comparison.php'] = __('Product Comparison Template', 'advanced-product-review-system');
     $templates['single-minimal.php'] = __('Minimal Review Template', 'advanced-product-review-system');
     return $templates;
 }
-add_filter('theme_post_templates', 'add_custom_post_templates');
+add_filter('theme_post_templates', 'aprs_add_custom_post_templates');
 
 // Load custom template
-function load_custom_post_template($template) {
+function aprs_load_custom_post_template($template) {
     global $post;
     
     if (!$post) {
@@ -26,12 +26,12 @@ function load_custom_post_template($template) {
     
     // Fallback to global default if template is default or empty
     if (empty($custom_template) || $custom_template == 'default') {
-        global $prs_data;
-        if (isset($prs_data['prs_default_template'])) {
-            $custom_template = $prs_data['prs_default_template'];
+        global $aprs_data;
+        if (isset($aprs_data['aprs_default_template'])) {
+            $custom_template = $aprs_data['aprs_default_template'];
         } else {
             // Fallback for when Redux is not active or data not saved
-            $custom_template = get_option('prs_default_template', 'default');
+            $custom_template = get_option('aprs_default_template', 'default');
         }
     }
     
@@ -51,23 +51,23 @@ function load_custom_post_template($template) {
     
     return $template;
 }
-add_filter('single_template', 'load_custom_post_template');
+add_filter('single_template', 'aprs_load_custom_post_template');
 
 // Add template selector meta box to post editor
-function add_template_selector_meta_box() {
+function aprs_add_template_selector_meta_box() {
     add_meta_box(
         'post_template_selector',
         __('Post Template', 'advanced-product-review-system'),
-        'render_template_selector_meta_box',
+        'aprs_render_template_selector_meta_box',
         'post',
         'side',
         'default'
     );
 }
-add_action('add_meta_boxes', 'add_template_selector_meta_box');
+add_action('add_meta_boxes', 'aprs_add_template_selector_meta_box');
 
 // Render template selector
-function render_template_selector_meta_box($post) {
+function aprs_render_template_selector_meta_box($post) {
     wp_nonce_field('save_post_template', 'post_template_nonce');
     
     $current_template = get_post_meta($post->ID, '_wp_page_template', true);
@@ -98,7 +98,7 @@ function render_template_selector_meta_box($post) {
 }
 
 // Save template selection
-function save_post_template_selection($post_id) {
+function aprs_save_post_template_selection($post_id) {
     // Check nonce
     $nonce = isset($_POST['post_template_nonce']) ? sanitize_text_field(wp_unslash($_POST['post_template_nonce'])) : '';
     if (!$nonce || !wp_verify_nonce($nonce, 'save_post_template')) {
@@ -120,10 +120,10 @@ function save_post_template_selection($post_id) {
         update_post_meta($post_id, '_wp_page_template', sanitize_text_field(wp_unslash($_POST['page_template'])));
     }
 }
-add_action('save_post', 'save_post_template_selection');
+add_action('save_post', 'aprs_save_post_template_selection');
 
 // Add admin notice for template location
-function custom_template_admin_notice() {
+function aprs_custom_template_admin_notice() {
     $screen = get_current_screen();
     if ($screen->id === 'post') {
         ?>
@@ -137,4 +137,4 @@ function custom_template_admin_notice() {
         <?php
     }
 }
-add_action('admin_notices', 'custom_template_admin_notice');
+add_action('admin_notices', 'aprs_custom_template_admin_notice');

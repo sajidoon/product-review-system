@@ -91,10 +91,10 @@ Edit `product-review-system.php` line ~55:
 
 ```php
 // Change from:
-wp_enqueue_script('prs-scripts', PRS_PLUGIN_URL . 'assets/js/frontend.js', ...);
+wp_enqueue_script('aprs-scripts', APRS_PLUGIN_URL . 'assets/js/frontend.js', ...);
 
 // To:
-wp_enqueue_script('prs-scripts', PRS_PLUGIN_URL . 'assets/js/frontend-simple.js', ...);
+wp_enqueue_script('aprs-scripts', APRS_PLUGIN_URL . 'assets/js/frontend-simple.js', ...);
 ```
 
 ### Customize Colors
@@ -115,25 +115,25 @@ Use these functions in your theme:
 
 ```php
 // Get overall rating
-$rating = prs_get_rating($post_id);
+$rating = aprs_get_rating($post_id);
 
 // Get detailed ratings
-$ratings = prs_get_ratings($post_id);
+$ratings = aprs_get_ratings($post_id);
 
 // Get features/specs
-$features = prs_get_features($post_id);
+$features = aprs_get_features($post_id);
 
 // Get prices
-$prices = prs_get_prices($post_id);
+$prices = aprs_get_prices($post_id);
 
 // Get pros
-$pros = prs_get_pros($post_id);
+$pros = aprs_get_pros($post_id);
 
 // Get cons
-$cons = prs_get_cons($post_id);
+$cons = aprs_get_cons($post_id);
 
 // Check if editor's choice
-if (prs_is_editors_choice($post_id)) {
+if (aprs_is_editors_choice($post_id)) {
     echo "⭐ Editor's Choice";
 }
 ```

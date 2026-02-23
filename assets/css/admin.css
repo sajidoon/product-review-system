@@ -1,5 +1,5 @@
 /* Admin Settings Styling */
-.wrap.prs-settings-wrap {
+.wrap.aprs-settings-wrap {
     background: #fff;
     padding: 20px 40px;
     border-radius: 8px;
@@ -8,7 +8,7 @@
     margin-top: 20px;
 }
 
-.prs-settings-wrap h1 {
+.aprs-settings-wrap h1 {
     font-size: 24px;
     font-weight: 600;
     margin-bottom: 25px;
@@ -17,7 +17,7 @@
     padding-bottom: 15px;
 }
 
-.prs-settings-wrap h2 {
+.aprs-settings-wrap h2 {
     font-size: 18px;
     margin-top: 35px;
     margin-bottom: 20px;
@@ -27,19 +27,19 @@
     line-height: 1.4;
 }
 
-.prs-settings-wrap .form-table th {
+.aprs-settings-wrap .form-table th {
     font-weight: 600;
     color: #3c434a;
     width: 250px;
 }
 
-.prs-settings-wrap .form-table td {
+.aprs-settings-wrap .form-table td {
     padding: 15px 10px;
 }
 
-.prs-settings-wrap input[type="text"],
-.prs-settings-wrap input[type="number"],
-.prs-settings-wrap select {
+.aprs-settings-wrap input[type="text"],
+.aprs-settings-wrap input[type="number"],
+.aprs-settings-wrap select {
     border: 1px solid #dcdcde;
     border-radius: 4px;
     padding: 0 8px;
@@ -50,9 +50,9 @@
     transition: box-shadow 0.1s linear;
 }
 
-.prs-settings-wrap input[type="text"]:focus,
-.prs-settings-wrap input[type="number"]:focus,
-.prs-settings-wrap select:focus {
+.aprs-settings-wrap input[type="text"]:focus,
+.aprs-settings-wrap input[type="number"]:focus,
+.aprs-settings-wrap select:focus {
     border-color: #2271b1;
     box-shadow: 0 0 0 1px #2271b1;
     outline: 2px solid transparent;
@@ -70,13 +70,13 @@
 }
 
 /* Submit Button */
-.prs-settings-wrap .submit {
+.aprs-settings-wrap .submit {
     margin-top: 40px;
     padding-top: 20px;
     border-top: 1px solid #f0f0f1;
 }
 
-.prs-settings-wrap .button-primary {
+.aprs-settings-wrap .button-primary {
     background: #2271b1;
     border-color: #2271b1;
     color: #fff;
@@ -89,18 +89,18 @@
     transition: background 0.2s;
 }
 
-.prs-settings-wrap .button-primary:hover {
+.aprs-settings-wrap .button-primary:hover {
     background: #135e96;
     border-color: #135e96;
 }
 
 /* Responsive */
 @media screen and (max-width: 782px) {
-    .prs-settings-wrap {
+    .aprs-settings-wrap {
         padding: 15px;
     }
 
-    .prs-settings-wrap .form-table th {
+    .aprs-settings-wrap .form-table th {
         width: auto;
     }
 }

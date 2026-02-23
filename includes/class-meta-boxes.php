@@ -8,7 +8,7 @@ if (!defined('ABSPATH')) {
 }
 
 // Enqueue CSS and JS
-function enqueue_advanced_product_styles() {
+function aprs_enqueue_advanced_product_styles() {
     if (is_single()) {
         wp_enqueue_style(
             'advanced-product-styles',
@@ -25,23 +25,23 @@ function enqueue_advanced_product_styles() {
         );
     }
 }
-add_action('wp_enqueue_scripts', 'enqueue_advanced_product_styles');
+add_action('wp_enqueue_scripts', 'aprs_enqueue_advanced_product_styles');
 
 // Add Meta Box
-function add_advanced_product_meta_box() {
+function aprs_add_advanced_product_meta_box() {
     add_meta_box(
         'advanced_product_meta_box',
         __('Advanced Product Information', 'advanced-product-review-system'),
-        'render_advanced_product_meta_box',
+        'aprs_render_advanced_product_meta_box',
         'post',
         'normal',
         'high'
     );
 }
-add_action('add_meta_boxes', 'add_advanced_product_meta_box');
+add_action('add_meta_boxes', 'aprs_add_advanced_product_meta_box');
 
 // Render Meta Box
-function render_advanced_product_meta_box($post) {
+function aprs_render_advanced_product_meta_box($post) {
     wp_nonce_field('save_advanced_product', 'advanced_product_nonce');
     
     // Get existing data
@@ -294,7 +294,7 @@ function render_advanced_product_meta_box($post) {
 }
 
 // Save Meta Box Data
-function save_advanced_product_meta($post_id) {
+function aprs_save_advanced_product_meta($post_id) {
     $nonce = isset($_POST['advanced_product_nonce']) ? sanitize_text_field(wp_unslash($_POST['advanced_product_nonce'])) : '';
     if (!$nonce || !wp_verify_nonce($nonce, 'save_advanced_product')) {
         return $post_id;
@@ -367,6 +367,6 @@ function save_advanced_product_meta($post_id) {
         update_post_meta($post_id, '_product_prices', $product_prices);
     }
 }
-add_action('save_post', 'save_advanced_product_meta');
+add_action('save_post', 'aprs_save_advanced_product_meta');
 
 

@@ -5,11 +5,11 @@
 
 /* Minimal Template Styles */
 .minimal-review-template {
-    max-width: var(--prs-max-width);
+    max-width: var(--aprs-max-width);
     margin: 0 auto;
     padding: 60px 20px;
-    font-family: var(--prs-font-family);
-    color: var(--prs-text-color);
+    font-family: var(--aprs-font-family);
+    color: var(--aprs-text-color);
 }
 
 .minimal-post-header {
@@ -20,7 +20,7 @@
 .minimal-post-title {
     font-size: 42px;
     font-weight: 800;
-    color: var(--prs-heading-color);
+    color: var(--aprs-heading-color);
     margin-bottom: 20px;
     line-height: 1.2;
 }
@@ -37,7 +37,7 @@
 
 .minimal-featured-image {
     margin: 40px 0;
-    border-radius: calc(var(--prs-border-radius) * 2);
+    border-radius: calc(var(--aprs-border-radius) * 2);
     overflow: hidden;
     box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
 }
@@ -51,10 +51,10 @@
 .minimal-post-content {
     font-size: 18px;
     line-height: 1.8;
-    color: var(--prs-text-color);
-    background: var(--prs-bg-color);
+    color: var(--aprs-text-color);
+    background: var(--aprs-bg-color);
     padding: 50px;
-    border-radius: calc(var(--prs-border-radius) * 2);
+    border-radius: calc(var(--aprs-border-radius) * 2);
     box-shadow: 0 5px 30px rgba(0, 0, 0, 0.08);
 }
 
@@ -66,7 +66,7 @@
 .minimal-post-content h3 {
     margin-top: 2em;
     margin-bottom: 1em;
-    color: var(--prs-heading-color);
+    color: var(--aprs-heading-color);
 }
 
 .minimal-rating-badge {
@@ -74,7 +74,7 @@
     top: 50%;
     right: 30px;
     transform: translateY(-50%);
-    background: linear-gradient(135deg, var(--prs-primary-color) 0%, var(--prs-badge-color) 100%);
+    background: linear-gradient(135deg, var(--aprs-primary-color) 0%, var(--aprs-badge-color) 100%);
     color: white;
     width: 100px;
     height: 100px;
@@ -119,15 +119,15 @@
 
 /* Review Score Box */
 .review-score-box {
-    background: linear-gradient(135deg, var(--prs-primary-color) 0%, var(--prs-badge-color) 100%);
+    background: linear-gradient(135deg, var(--aprs-primary-color) 0%, var(--aprs-badge-color) 100%);
     color: white;
-    padding: var(--prs-box-padding);
-    border-radius: var(--prs-border-radius);
+    padding: var(--aprs-box-padding);
+    border-radius: var(--aprs-border-radius);
     text-align: center;
-    margin: var(--prs-box-margin) 0;
+    margin: var(--aprs-box-margin) 0;
     position: relative;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    border: var(--prs-border-width) solid var(--prs-border-color);
+    border: var(--aprs-border-width) solid var(--aprs-border-color);
 }
 
 .editors-choice-badge {
@@ -166,12 +166,12 @@
 
 /* Detailed Ratings */
 .detailed-ratings {
-    background: var(--prs-bg-color);
-    padding: var(--prs-box-padding);
-    border-radius: var(--prs-border-radius);
-    margin: var(--prs-box-margin) 0;
+    background: var(--aprs-bg-color);
+    padding: var(--aprs-box-padding);
+    border-radius: var(--aprs-border-radius);
+    margin: var(--aprs-box-margin) 0;
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: var(--prs-border-width) solid var(--prs-border-color);
+    border: var(--aprs-border-width) solid var(--aprs-border-color);
 }
 
 .detailed-ratings h3 {
@@ -247,16 +247,16 @@
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 20px;
-    margin: var(--prs-box-margin) 0;
+    margin: var(--aprs-box-margin) 0;
 }
 
 .pros-box,
 .cons-box {
-    background: var(--prs-bg-color);
-    padding: var(--prs-box-padding);
-    border-radius: var(--prs-border-radius);
+    background: var(--aprs-bg-color);
+    padding: var(--aprs-box-padding);
+    border-radius: var(--aprs-border-radius);
     box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
-    border: var(--prs-border-width) solid var(--prs-border-color);
+    border: var(--aprs-border-width) solid var(--aprs-border-color);
 }
 
 .pros-box {
@@ -324,7 +324,7 @@
 
 /* Price Section Styling */
 .price-section .collapsible-header {
-    background: linear-gradient(135deg, var(--prs-price-grad-1) 0%, var(--prs-price-grad-2) 100%);
+    background: linear-gradient(135deg, var(--aprs-price-grad-1) 0%, var(--aprs-price-grad-2) 100%);
     color: white;
     border: none;
 }
@@ -335,7 +335,7 @@
 
 /* Specs Section Styling */
 .specs-section .collapsible-header {
-    background: linear-gradient(135deg, var(--prs-specs-grad-1) 0%, var(--prs-specs-grad-2) 100%);
+    background: linear-gradient(135deg, var(--aprs-specs-grad-1) 0%, var(--aprs-specs-grad-2) 100%);
     color: white;
     border: none;
 }
@@ -346,12 +346,12 @@
 
 /* Collapsible Sections */
 .collapsible-section {
-    margin: var(--prs-box-margin) 0;
+    margin: var(--aprs-box-margin) 0;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
-    border-radius: var(--prs-border-radius);
+    border-radius: var(--aprs-border-radius);
     overflow: hidden;
     box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-    border: var(--prs-border-width) solid var(--prs-border-color);
+    border: var(--aprs-border-width) solid var(--aprs-border-color);
 }
 
 .collapsible-header {
@@ -437,7 +437,7 @@
     flex: 1;
     font-size: 28px;
     font-weight: 700;
-    color: var(--prs-price-grad-2);
+    color: var(--aprs-price-grad-2);
 }
 
 .stock {
